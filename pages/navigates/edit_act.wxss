@@ -1,0 +1,71 @@
+/* edit_act.wxss */
+page{
+  height: 100%;
+  background-color: #f0f0f2;
+}
+.section{
+  display: flex;
+  justify-content: flex-end;
+  height: 3.5rem;
+}
+.farm_work{
+	height:10rem;
+}
+.section_act{
+  display: flex;
+  justify-content: flex-end;
+  height: 2rem;
+}
+.section_title text{
+  font-size: 0.9rem;
+  line-height: 1.8rem;
+  margin-right: 1rem;
+}
+.content{
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 1.5rem
+}
+picker{
+  width: 60%;
+  border: 1px solid #888888;
+  border-radius: 0.3rem;
+  background-color: white;
+ 
+  height: 1.5rem;
+}
+.picker{
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  padding-left: 0.5rem;
+  color: #888;
+  
+}
+.in{
+  width: 60%;
+  height: 1.5rem;
+  border: 1px solid #888888;
+  border-radius: 0.3rem;
+}
+input{
+  
+  
+  background-color: white;
+ 
+  
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  color: #888;
+  padding-left: 0.5rem;
+}
+.save{
+  width: 50%;
+  margin: 0 auto;
+  height: 1.6rem;
+  line-height: 1.6rem;
+   font-size: 0.8rem;
+  position: relative;
+  bottom: -5rem;
+ 
+  
+}

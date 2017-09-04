@@ -1,0 +1,50 @@
+{
+  "pages": [
+    
+    "pages/login/login",
+    "pages/navigates/add_act",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/navigates/user_message",
+    "pages/navigates/company",
+    "pages/navigates/edit_inputs",
+    "pages/navigates/detail_act",
+    "pages/navigates/inputs_message",
+    "pages/navigates/edit_act",
+    "pages/navigates/view_pic",
+    "pages/navigates/sure",
+    "pages/navigates/add_inputs",
+    "pages/navigates/big_pic"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": true,
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "拍易得",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#56abe4",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "农事活动",
+        "list": [
+          {
+            "pagePath": "pages/navigates/add_inputs",
+            "text": "农事活动"
+          }
+        ]
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "我"
+      }
+    ]
+  },
+  "debug": true
+}

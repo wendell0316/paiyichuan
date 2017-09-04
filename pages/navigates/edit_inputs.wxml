@@ -1,0 +1,87 @@
+<!--edit_inputs.wxml-->
+<view class="content">
+  <view class="section">
+    <view class="section_title">
+    	<text>投入品名称* </text>
+    </view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{inputs_array}}">
+      <view class="picker">
+        当前选择：{{inputs_array[index]}}
+      </view>
+    </picker>
+  </view>
+  <view class="section">
+    <view class="section_title">
+    	<text>投入品种类 </text>
+    </view>
+    
+    <view class="in">
+    	<input type="text" value="1"/>
+  	</view>
+  </view>
+  <view class="section">
+    <view class="section_title">
+    	<text>有效成分</text>
+    </view>
+    
+    <view class="in">
+    	<input type="text" value="1"/>
+  	</view>
+  </view>
+  <view class="section">
+    <view class="section_title">
+    	<text>功能 </text>
+    </view>
+    
+    <view class="in">
+    	<input type="text" value="1"/>
+  	</view>
+  </view>
+  <view class="section">
+    <view class="section_title">
+    	<text>生产商编号 </text>
+    </view>
+    
+    <view class="in">
+    	<input type="text" value="1"/>
+  	</view>
+  </view>
+  <view class="section">
+    <view class="section_title">
+    	<text>生产商名称 </text>
+    </view>
+    
+    <view class="in">
+    	<input type="text" value="1"/>
+  	</view>
+  </view>
+  <view class="section">
+    <view class="section_title">
+    	<text>使用量* </text>
+    </view>
+    
+    <view class="in">
+    	<input type="text" placeholder="110" bindinput="bindinputChange"/>
+  	</view>
+  </view>
+  <view class="section">
+    <view class="section_title">
+    	<text>使用量单位* </text>
+    </view>
+    <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{use_quantity_unit}}">
+      <view class="picker">
+        当前选择：{{use_quantity_unit[index1]}}
+      </view>
+    </picker>
+  </view>
+  <view class="section">
+    <view class="section_title">
+    	<text>安全间隔期* </text>
+    </view>
+    
+    <view class="in">
+    	<input type="text" placeholder="30" bindinput="bindinputChange1"/>
+  	</view>
+  </view>
+  <button class="save" bindtap="submit">保存</button>
+</view>

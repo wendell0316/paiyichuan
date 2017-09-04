@@ -1,0 +1,32 @@
+<!--sure.wxml-->
+<view class="farm_work">
+  <view class="special">
+      <view class="section_title">农事活动：</view>
+      <view class="special_item">
+        <view>{{baseName}}</view>
+        <view>{{landName}}</view>
+        <view>{{varietyName}}</view>
+        <view>{{workName}}</view>
+      </view>
+  </view>
+  <view class="section">
+    <view class="section_tile">执行人工号：</view>
+    <view class="item">{{userNo}}</view>
+  </view>
+  <view class="section">
+    <view class="section_tile">执行人：</view>
+    <view class="item">{{userName}}123</view>
+  </view>
+  <view class="section">
+		    <view class="section_title">
+		    	执行时间： 
+		    </view>
+		    
+		    <picker class="item" mode="date" value="{{workDate}}" start="2017-01-01" end="2050-09-01" bindchange="bindDateChange" name="执行时间">
+          <view class="border">
+             {{workDate}}
+          </view>
+        </picker>
+	</view>
+  <button class="save" bindtap="addFarmWork">保存</button>
+</view>

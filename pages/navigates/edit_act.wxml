@@ -1,0 +1,86 @@
+<!--edit_act.wxml-->
+<form bindsubmit="formSubmit">
+	<view class="content">
+		<view class="farm_work">
+			<view class="section_act">
+		      <view class="section_title">
+		        <text>农事活动*  </text>
+		      </view>
+		      
+		      <picker bindchange="bindPickerChange" value="{{index}}" range="{{base}}" name="基地">
+		        <view class="picker">
+		          {{base[index]}}
+		        </view>
+		      </picker>
+		      
+		    </view>
+		    <view class="section_act">
+		      <view class="section_title">
+		        <text> </text>
+		      </view>
+		      
+		      <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{land}}" name="地块">
+		        <view class="picker">
+		          {{land[index1]}}
+		        </view>
+		      </picker>
+		      
+		    </view>
+		    <view class="section_act">
+		      <view class="section_title">
+		        <text> </text>
+		      </view>
+		      
+		      <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{variety}}" name="农事种类">
+		        <view class="picker">
+		          {{variety[index2]}}
+		        </view>
+		      </picker>
+		      
+		    </view>
+		    <view class="section_act">
+		      <view class="section_title">
+		        <text> </text>
+		      </view>
+		      
+		      <picker bindchange="bindPickerChange3" value="{{index3}}" range="{{operateName}}" name="农事活动">
+		        <view class="picker">
+		          {{operateName[index3]}}
+		        </view>
+		      </picker>
+		      
+		    </view>
+		</view>
+	    <view class="section">
+		    <view class="section_title">
+		    	<text>执行人工号* </text>
+		    </view>
+		    
+		    <view class="in">
+		    	<input type="text" placeholder="{{workerId}}" name="workerId"/>
+		  	</view>
+	  	</view>
+	    <view class="section">
+		    <view class="section_title">
+		    	<text>执行人* </text>
+		    </view>
+		    
+		    <view class="in">
+		    	<input type="text" placeholder="{{worker}}" name="worker"/>
+		  	</view>
+	  	</view>
+	    <view class="section">
+		    <view class="section_title">
+		    	<text>执行时间* </text>
+		    </view>
+		    
+		    <picker mode="date" value="{{workDate}}" start="2017-01-01" end="2050-09-01" bindchange="bindDateChange" name="执行时间">
+          <view class="picker">
+             {{workDate}}
+          </view>
+        </picker>
+	  	</view>
+		<button form-type="submit" class="save">保存</button>
+	</view>
+</form>
+<view>{{farmWorkSid}}</view>

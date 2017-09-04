@@ -1,0 +1,34 @@
+<view class="content">
+  <view class="section">
+      <view class="section_title">
+        <text>姓名: </text>
+      </view>
+      
+      <view class="picker">
+        {{userName}}
+      </view>
+      
+  </view>
+  <view class="section">
+        <view class="section_title">
+          <text>账号: </text>
+        </view>
+        
+        <view class="picker">
+          {{userNo}}
+        </view>
+        
+  </view>
+  <view class="section">
+        <view class="section_title">
+          <text>手机: </text>
+        </view>
+        
+        <view class="picker">
+          {{mobileNumber}}
+        </view>
+        
+  </view>
+  
+</view>
+<button class="logout" bindtap="logout">退出登录</button>

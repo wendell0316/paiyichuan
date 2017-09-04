@@ -1,0 +1,29 @@
+/* view_pic.wxss */
+ page{
+  height: 100%;
+  background-color: #f0f0f2;
+}
+.farm_pic{
+    width: 32%;
+  float: left;
+  margin-left: 1%
+}
+.farm_pic image{
+  width: 100%;
+  float: left;
+  margin-left: 1%;
+  height: 5rem;
+
+}
+.add_pic{
+  clear: both
+}
+.view{
+  width: 100%;
+  z-index: 100;
+  background-color: black
+
+}
+.view image{
+  width: 100%
+}

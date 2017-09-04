@@ -1,0 +1,18 @@
+<view>
+    <view>{{message}}</view>
+    <view>公司简称：{{companyShortName}}</view>
+    <view>公司全称：{{companyFullName}}</view>
+    <view>公司编号：{{companyNo}}</view>
+    <view>公司电话：{{companyPhone}}</view>
+    <view>公司详址：{{companyAddress}}</view>
+    <view>公司工商注册号：{{companyRegisterNo}}</view>
+    <view>公司工商注册日期：{{date}}</view>
+    <view>公司厂商识别代码：{{companyNo}}</view>
+    <view>所属行业：{{companyIndustry}}</view>
+    <view>所属行业编码：{{companyIndustryCode}}</view>
+    <view>公司邮编：{{companyZipCode}}</view>
+    <view>公司官网：{{companyWebsite}}</view>
+
+      
+    
+</view>

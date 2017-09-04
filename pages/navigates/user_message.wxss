@@ -1,0 +1,29 @@
+page{
+  height:100%;
+  background-color: #f0f0f2
+}
+.content{
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 3.5rem 
+}
+.section{
+  display: flex;
+  justify-content: flex-end;
+  height: 3.5rem;
+  line-height: 3.5rem
+}
+.picker{
+  font-size: 0.8rem;
+  padding-left: 0.5rem;
+  color: #888;
+  width: 75%
+}
+.logout{
+  margin-top: 5rem;
+  height:1.7rem;
+  width: 25%;
+  font-size: 0.8rem;
+  line-height: 1.7rem;
+  border: 1px solid #888888;
+}

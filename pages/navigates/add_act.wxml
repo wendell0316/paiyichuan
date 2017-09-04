@@ -1,0 +1,54 @@
+<!--add.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="content">
+    <view class="section">
+      <view class="section_title">
+        <text>基地 </text>
+      </view>
+      <picker bindchange="bindPickerChange" value="{{index0}}" range="{{base}}">
+        <view class="picker">
+          {{base[index0]}}
+        </view>
+      </picker>
+    </view>
+  
+  
+    <view class="section">
+      <view class="section_title">
+        <text>地块 </text>
+      </view>
+      <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{land}}">
+        <view class="picker">
+          {{land[index1]}}
+        </view>
+      </picker>
+    </view>
+  
+  
+    <view class="section">
+      <view class="section_title">
+        <text>农事种类 </text>
+      </view>
+      <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{variety}}">
+        <view class="picker">
+          {{variety[index2]}}
+        </view>
+      </picker>
+    </view>
+  
+  
+    <view class="section">
+      <view class="section_title">
+        <text>农事活动 </text>
+      </view>
+      <picker bindchange="bindPickerChange3" value="{{index3}}" range="{{work}}">
+        <view class="picker">
+          {{work[index3]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <navigator hover-class="none" url="sure?baseName={{baseName}}&baseSid={{baseSid}}&landName={{landName}}&landSid={{landSid}}&varietyName={{varietyName}}&varietyCode={{varietyCode}}&workName={{workName}}&workNo={{workNo}}&userName={{userName}}&userNo={{userNo}}">
+    <button form-type="submit" class="next">下一步</button>
+  </navigator>
+</form>

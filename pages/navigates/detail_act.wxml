@@ -1,0 +1,25 @@
+<!--detail_act.wxml-->
+<view class="detail_act">
+  <view class="inputs content">
+    <navigator class="section" url="inputs_message?farmWorkSid={{farmWorkSid}}">
+      <text>投入品信息</text>
+      <image src="../../images/more.png"></image>
+    </navigator>
+    <view class="henxian"></view>
+  </view>
+  <view class="edit content">
+    <navigator class="section" url="edit_act?base={{base}}&land={{land}}&variety={{variety}}&operateName={{operateName}}&worker={{worker}}&workerId={{workerId}}&workDate={{workDate}}&baseSid={{baseSid}}&operateCode={{farmWorkOperateCode}}&farmWorkSid={{farmWorkSid}}&landSid={{landSid}}&writerName={{writerName}}&writerNo={{writerNo}}&varietyCode={{varietyCode}}">
+      <text>编辑农事活动</text>
+      <image src="../../images/more.png"></image>
+    </navigator>
+    <view class="henxian"></view>
+  </view>
+  <view class="photo content">
+    <navigator class="section" url="view_pic?farmWorkSid={{farmWorkSid}}&writerName={{writerName}}&writerNo={{writerNo}}">
+      <text>农事活动图片{{farmWorkSid}}{{writerName}}</text>
+      <image src="../../images/more.png"></image>
+    </navigator>
+    <view class="henxian"></view>
+  </view>
+</view>
+

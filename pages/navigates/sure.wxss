@@ -1,0 +1,50 @@
+/* sure.wxss */
+
+page{
+  height: 100%;
+  background-color: #f0f0f2;
+}
+.farm_work{
+
+  padding-top: 2rem
+
+}
+.item{
+  width: 65%;
+  text-align: center;
+  height: 2rem;
+}
+.special_item{
+  width: 65%;
+  text-align: center;
+}
+.special_item view{
+  height: 2rem
+}
+.border{
+  border: 1px solid #888888;
+  border-radius: 0.3rem;
+  background-color: white;
+  line-height: 1.5rem;
+}
+.item view{
+  height: 1.5rem;
+  width: 92%
+}
+.special{
+  height: 8rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.section{
+  display: flex;
+  justify-content: flex-end;
+  height: 2.5rem;
+}
+.save{
+    width: 50%;
+  margin: 0 auto;
+  height: 1.6rem;
+  line-height: 1.6rem;
+   font-size: 0.8rem
+}

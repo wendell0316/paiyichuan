@@ -1,0 +1,18 @@
+<!--inputs_message.wxml-->
+<view class="list" wx:for="{{contents}}" wx:key="id">
+	<navigator url="../navigates/edit_inputs" class="msg">
+        <view class="looked">
+          <text class="place">{{item.chemicalName}} </text> 
+          <text class="area">{{item.chemicalVariety}}</text>
+        </view>
+        
+        <view class="date">{{item.function}}</view>
+        
+    </navigator>
+    <navigator url="../navigates/edit_inputs?chemicalName={{item.chemicalName}}&chemicalVariety={{item.chemicalVariety}}&effectiveConstituent={{item.chemicalVariety}}&fun={{item.function}}&producerName={{item.producerName}}&producerNo={{item.producerNo}}&usageAmountDenominator={{item.usageAmountDenominator}}&safeInterval={{item.safeInterval}}&usageUnit={{item.usageUnit}}">
+        <view class="detail"><image src="../../images/more.png"></image></view>
+    </navigator>
+</view>
+<navigator url="../navigates/add_inputs">
+  <button bindtap="addInputs">增加投入品</button>
+</navigator>

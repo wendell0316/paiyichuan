@@ -1,0 +1,62 @@
+/* edit_inputs.wxss */
+page{
+  height: 100%;
+  background-color: #f0f0f2;
+}
+.section{
+  display: flex;
+  justify-content: flex-end;
+  height: 2.5rem;
+}
+.section_title text{
+  font-size: 0.9rem;
+  line-height: 1.8rem;
+  margin-right: 1rem;
+}
+.content{
+  width: 85%;
+  margin: 1rem auto;
+  padding-top: 1rem 
+}
+picker{
+  width: 60%;
+  border: 1px solid #888888;
+  border-radius: 0.3rem;
+  background-color: white;
+ 
+  height: 1.5rem;
+}
+.picker{
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  padding-left: 0.5rem;
+  color: #888;
+  
+}
+.in{
+  width: 60%;
+  height: 1.5rem;
+  border: 1px solid #888888;
+  border-radius: 0.3rem;
+}
+input{
+  
+  
+  background-color: white;
+ 
+  
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  color: #888;
+  padding-left: 0.5rem;
+}
+.save{
+  width: 22%;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.8rem;
+  background-color: white;
+  margin-top: 1.7rem;
+  border: 1px solid #888;
+  border-radius: 0.2rem;
+}

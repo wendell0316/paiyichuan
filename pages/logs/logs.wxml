@@ -1,0 +1,11 @@
+<view class="personal_message">
+  <navigator class="user" url="../navigates/user_message">
+    <text class="messge">用户信息</text>
+    <image src="../../images/more.png" class="img"></image>
+  </navigator>
+  <view class="line"></view>
+  <navigator class="user" url="../navigates/company">
+    <text class="messge">公司信息</text>
+    <image src="../../images/more.png" class="img"></image>
+  </navigator>
+</view>

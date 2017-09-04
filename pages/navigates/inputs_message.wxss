@@ -1,0 +1,41 @@
+/* inputs_message.wxss */
+page{
+  height:100%;
+  background-color: #f0f0f2
+}
+.list{
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border:solid 1px #f0f0f2;
+  border-bottom-color: #bbbbbb;
+  height: 5rem;
+}
+.looked{
+  height: 2rem;
+}
+.place{
+  font-weight: 800;
+  margin-left: 1.5rem;
+  line-height: 2rem;
+}
+.area{
+  font-size: 0.8rem;
+  line-height: 2rem;
+}
+.date{
+  font-size: 0.7rem;
+  height: 1.5rem;
+  line-height: 1.4rem;
+  color: #777;
+  margin-left: 1.5rem;
+  width: 92%;
+  overflow: hidden;
+}
+.detail image{
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right:2rem 
+}
