@@ -187,7 +187,7 @@ Page({
     this.setData({
       index1: e.detail.value,
       landName:lands[index1],
-      landNo:landSid[index1]
+      landSid:landSid[index1]
     })
   },
   bindPickerChange2: function (e) {

@@ -8,6 +8,7 @@
       <picker bindchange="bindPickerChange" value="{{index0}}" range="{{base}}">
         <view class="picker">
           {{base[index0]}}
+          <image src="../../images/more_unfold.png" class="pulldown"></image>
         </view>
       </picker>
     </view>
@@ -20,6 +21,7 @@
       <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{land}}">
         <view class="picker">
           {{land[index1]}}
+          <image src="../../images/more_unfold.png" class="pulldown"></image>
         </view>
       </picker>
     </view>
@@ -32,6 +34,7 @@
       <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{variety}}">
         <view class="picker">
           {{variety[index2]}}
+          <image src="../../images/more_unfold.png" class="pulldown"></image>
         </view>
       </picker>
     </view>
@@ -44,6 +47,7 @@
       <picker bindchange="bindPickerChange3" value="{{index3}}" range="{{work}}">
         <view class="picker">
           {{work[index3]}}
+          <image src="../../images/more_unfold.png" class="pulldown"></image>
         </view>
       </picker>
     </view>

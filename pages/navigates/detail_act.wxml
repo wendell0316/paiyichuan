@@ -16,7 +16,7 @@
   </view>
   <view class="photo content">
     <navigator class="section" url="view_pic?farmWorkSid={{farmWorkSid}}&writerName={{writerName}}&writerNo={{writerNo}}">
-      <text>农事活动图片{{farmWorkSid}}{{writerName}}</text>
+      <text>农事活动图片</text>
       <image src="../../images/more.png"></image>
     </navigator>
     <view class="henxian"></view>

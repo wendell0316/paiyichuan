@@ -2,16 +2,19 @@
 var app=getApp();
 var date='';
 var userName=''
-var userSid=''
+var userNo=''
 var landName =''
 var landSid=''
-var lands=''
+var lands=[]
 var baseName =''
 var baseSid =''
 var varietyName =''
 var varietyCode =''
 var workName =''
 var workNo =''
+var userName=''
+var index = 0;
+
 Page({
 
   /**
@@ -32,15 +35,16 @@ Page({
    */
   onLoad: function (options) {
     userName=options.userName;
-    userNo=options.userSid;
+    userNo=options.userNo;
     landName=options.landName;
-    landSid=options.landName;
+    landSid=options.landSid;
     baseName=options.baseName;
     baseSid=options.baseSid;
     varietyName=options.varietyName;
     varietyCode=options.varietyCode;
     workName=options.workName;
     workNo=options.workNo;
+
     date = Date.parse(new Date())/1000;
     var d = new Date(parseInt(date) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
     console.log(date)
@@ -71,7 +75,7 @@ Page({
     var sessionId=app.data.session;
     var companySid=app.data.companySid;
     var land=[];
-    var index=''
+    
     wx.request({
       url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprice/land/getLands',
       data: {
@@ -86,21 +90,59 @@ Page({
       method: 'POST',
       dataType: '',
       success: function(res) {
-        landNo=res.data.contents.list.map(function(value){return value.landNo})
+        lands=res.data.contents.list.map(function(value){return value.landNo})
         land = res.data.contents.list.map(function (value) { return value.landSid })
-        for(var i=0;i<lands.length;i++){
-          if(lands[i]==landSid){
+        for(var i=0;i<land.length;i++){
+          if(land[i]==landSid){
             index=i;
+            console.log(index)
           }
         }
-        var landNo=land[i];
+        var landNo=lands[index];
+        console.log(landNo);
+        console.log(index)
+        console.log(i)
+        console.log(land)
+        console.log(lands)
+        console.log(sessionId);
+        console.log(companySid);
+        console.log(landSid);
+        console.log(baseSid);
+        console.log(varietyCode),
+        console.log(varietyName),
+        console.log(workNo),
+        console.log(workName),
+          console.log(date),
+          console.log(userNo),
+          console.log(userName),
+          console.log(userNo),
+          console.log(userName),
+       
         wx.request({
-          url: '',
-          data: '',
+          url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprice/farmwork/addFarmwork',
+          data: {
+            sessionId:sessionId,
+            landNo:landNo,
+            companySid:companySid,
+            landSid:landSid,
+            baseSid:baseSid,
+            faemWorkVarietyCode:varietyCode,
+            farmWorkVarietyName:varietyName,
+            farmWorkOperateCode:workNo,
+            farmWorkOperateName:workName,
+            executeDatetime:date,
+            executorWorkno:userNo,
+            executorName:userName,
+            updateWriterName:userName,
+            updateWriterNo:userNo,
+            note:'hehe',
+          },
           header: {},
-          method: '',
+          method: 'POST',
           dataType: '',
-          success: function(res) {},
+          success: function(res) {
+            console.log(res.data.message)
+          },
           fail: function(res) {},
           complete: function(res) {},
         })

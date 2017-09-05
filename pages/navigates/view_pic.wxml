@@ -6,7 +6,7 @@
   indicator-dots="true"  style="display:{{display}};height:{{height}}px;line-height:{{height*1.3}}px" class="view">
   <block wx:for="{{src}}">
     <swiper-item>
-      <image src="{{item.photoAddress}}" class="slide-image" bindtap="littlePic"/>
+      <image src="{{item.photoAddress}}" class="slide-image" bindtap="littlePic" mode="widthFix"/>
     </swiper-item>
   </block>
 </swiper>

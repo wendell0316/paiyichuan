@@ -10,6 +10,7 @@
 		      <picker bindchange="bindPickerChange" value="{{index}}" range="{{base}}" name="基地">
 		        <view class="picker">
 		          {{base[index]}}
+              <image src="../../images/more_unfold.png" class="pulldown"></image>
 		        </view>
 		      </picker>
 		      
@@ -22,6 +23,7 @@
 		      <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{land}}" name="地块">
 		        <view class="picker">
 		          {{land[index1]}}
+              <image src="../../images/more_unfold.png" class="pulldown"></image>
 		        </view>
 		      </picker>
 		      
@@ -34,6 +36,7 @@
 		      <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{variety}}" name="农事种类">
 		        <view class="picker">
 		          {{variety[index2]}}
+              <image src="../../images/more_unfold.png" class="pulldown"></image>
 		        </view>
 		      </picker>
 		      
@@ -46,6 +49,7 @@
 		      <picker bindchange="bindPickerChange3" value="{{index3}}" range="{{operateName}}" name="农事活动">
 		        <view class="picker">
 		          {{operateName[index3]}}
+              <image src="../../images/more_unfold.png" class="pulldown"></image>
 		        </view>
 		      </picker>
 		      
@@ -77,6 +81,7 @@
 		    <picker mode="date" value="{{workDate}}" start="2017-01-01" end="2050-09-01" bindchange="bindDateChange" name="执行时间">
           <view class="picker">
              {{workDate}}
+             <image src="../../images/more_unfold.png" class="pulldown"></image>
           </view>
         </picker>
 	  	</view>

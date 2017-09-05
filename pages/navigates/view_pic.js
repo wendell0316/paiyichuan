@@ -132,6 +132,11 @@ Page({
                 method: 'POST',
                 dataType: '',
                 success: function (res) {
+                  wx.showToast({
+                    title: '上传成功',
+                    icon:'success',
+                    duration:2000
+                  })
                   src = res.data.contents
                   console.log(res.data.message)
                   console.log(src)
@@ -139,7 +144,13 @@ Page({
                     src: src
                   })
                 },
-                fail: function (res) { },
+                fail: function (res) {
+                  wx.showToast({
+                    title: '上传成功',
+                    icon: 'warn',
+                    duration: 2000
+                  })
+                 },
                 complete: function (res) { },
               }) 
             }

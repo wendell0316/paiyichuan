@@ -353,8 +353,22 @@ Page({
       dataType: '',
       success: function(res) {
         console.log(res.data.message)
+        wx.showToast({
+          title: '修改成功',
+          icon:'success',
+          duration:2000
+        })
+        wx.reLaunch({
+          url: '../index/index',
+        })
       },
-      fail: function(res) {},
+      fail: function(res) {
+        wx.showToast({
+          title: '修改失败',
+          icon:'warn',
+          duration:2000
+        })
+      },
       complete: function(res) {},
     })
   },
