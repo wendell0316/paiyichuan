@@ -2,6 +2,7 @@
     <navigator url="../navigates/view_pic">
         <view class="weui-cell__hd">
             <image src="{{src[index]}}" class="act_pic"></image>
+            
         </view>
     </navigator>
     <navigator url="../navigates/edit_act?base={{item.baseName}}&land={{item.landName}}&variety={{item.farmWorkVarietyName}}&operateName={{item.farmWorkOperateName}}&worker={{item.executorName}}&workerId={{item.executorWorkno}}&workDate={{item.executeDatetime}}&baseSid={{item.baseSid}}&operateCode={{item.farmWorkOperateCode}}&farmWorkSid={{item.farmWorkSid}}&landSid={{item.landSid}}&writerName={{item.updateWriterName}}&writerNo={{item.updateWriterNo}}&varietyCode={{item.farmWorkVarietyCode}}" class="msg">
@@ -9,7 +10,7 @@
           <text class="place">{{item.baseName}} </text> 
           <text class="area">{{item.landName}}</text>
         </view>
-        <view class="date">2016-02-24</view>
+        <view class="date">{{workdate[index]}}</view>
         <view>
           <text class="work">{{item.farmWorkOperateName}} </text>
           <text class="worker">{{item.executorName}}</text>

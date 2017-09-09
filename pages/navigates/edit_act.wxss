@@ -6,10 +6,10 @@ page{
 .section{
   display: flex;
   justify-content: flex-end;
-  height: 3.5rem;
+  height: 2.5rem;
 }
 .farm_work{
-	height:10rem;
+	height:9rem;
 }
 .section_act{
   display: flex;
@@ -65,6 +65,71 @@ input{
   line-height: 1.5rem;
   color: #888;
   padding-left: 0.5rem;
+}
+.ctrl_pic{
+  width: 40%;
+  height: 3.5rem;
+  overflow: hidden;
+}
+.picture{
+  display: flex;
+  justify-content: flex-end;
+}
+.farm_pic{
+  
+  height: 3.5rem;
+  width: 49%;
+  float: left;
+  margin-left: 1%
+}
+.farm_pic image{
+  width: 100%;
+  float: left;
+  margin-left: 1%;
+  height: 3.5rem;
+
+}
+.add_pic{
+  clear: both;
+  height: 3rem;
+  overflow: hidden
+}
+.view{
+  width: 100%;
+  z-index: 100;
+  background-color: black
+
+}
+.detail{
+  
+  height: 3.5rem;
+  line-height:3.5rem;
+text-align:center;
+
+}
+.add{
+  height: 3.5rem;
+  line-height:3.5rem;
+text-align:center;
+}
+.add image{
+ width: 1.2rem;
+  height: 1.2rem;
+}
+.more_pic{
+  width: 20%;
+}
+.detail image{
+  width: 1.2rem;
+  height: 1.2rem;
+  
+}
+.view image{
+  width: 100%
+}
+.remind{
+  font-size: 0.6rem;
+  margin-left: 1rem
 }
 .save{
   width: 50%;

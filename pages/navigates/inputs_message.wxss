@@ -39,3 +39,7 @@ page{
   height: 1.2rem;
   margin-right:2rem 
 }
+.kuoda{
+  height: 5rem;
+  line-height: 5rem
+}

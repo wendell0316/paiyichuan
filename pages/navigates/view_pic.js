@@ -4,7 +4,9 @@ var src=[]
 var farmWorkSid=''
 var writeName=''
 var writeNo;
-var allPic=false
+var allPic=false;
+var photoInfSid=[];
+var photoAddress=[];
 Page({
 
   /**
@@ -16,7 +18,8 @@ Page({
     allPic:'',
     display:'none',
     display2:'block',
-    height:''
+    height:'',
+    photoAddress:'',
   },
 
   /**
@@ -55,11 +58,15 @@ Page({
       dataType: '',
       success: function(res) {
         src=res.data.contents
+        photoInfSid = src.map(function (value) { return value.photoInfSid })
+        photoAddress = src.map(function (value) { return value.photoAddress })
         console.log(res.data.message)
         console.log(src)
         that.setData({
-          src:src
+          src:src,
+          photoAddress:photoAddress
         })
+        
       },
       fail: function(res) {},
       complete: function(res) {},
@@ -137,11 +144,14 @@ Page({
                     icon:'success',
                     duration:2000
                   })
-                  src = res.data.contents
+                  src = res.data.contents;
+                  photoAddress = src.map(function (value) { return value.photoAddress })
+                  photoInfSid=src.map(function(value){ return value.photoInfSid})
                   console.log(res.data.message)
                   console.log(src)
                   _this.setData({
-                    src: src
+                    src: src,
+                    photoAddress:photoAddress
                   })
                 },
                 fail: function (res) {
@@ -200,6 +210,51 @@ Page({
     }
   }
   ,
+  delete:function(e){
+    var id=e.currentTarget.dataset.id;
+    var sessionId = app.data.session;
+    var that=this
+    console.log(id)
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除此图片吗',
+      success:function(res){
+        if(res.confirm){
+          console.log('用户点击确定')
+          wx.request({
+            url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprice/base/deleteBasePhotosBySid',
+            data: {
+              sessionId: sessionId,
+              photoInfSid: photoInfSid[id]
+            },
+            header: {},
+            method: 'POST',
+            dataType: '',
+            success: function (res) {
+              console.log(res.data.message)
+             
+              
+              photoAddress.splice(id,1);
+              console.log(photoAddress)
+              that.setData({
+                photoAddress:photoAddress
+              })
+              wx.showToast({
+                title: '删除成功',
+                icon: 'success',
+                duration: 2000
+              })
+            },
+            
+          })
+        }
+        else if(res.cancel){
+          console.log('点击取消')
+        }
+
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

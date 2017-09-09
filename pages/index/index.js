@@ -1,5 +1,7 @@
  var app=getApp();
-
+ var farmWorkid = [];
+ var photo = [];
+ var i=0;
 Page({
   data: {
     icon:'../../images/more.png',
@@ -11,7 +13,8 @@ Page({
     session: '',
     tempFilePaths:'',
     list:'',
-    src:''
+    src:'',
+    workdate:''
   },
   onShow:function(){
    var sessionId=app.data.session;
@@ -24,8 +27,7 @@ Page({
   onLoad:function(){
     var sessionId = app.data.session;
     var companySid = app.data.companySid;
-    var farmWorkid=[];
-    var photo = [];
+    var executeDatetime=[]
     var that =this;
     var list=[];
     wx.request({
@@ -45,43 +47,62 @@ Page({
         console.log(res.data.contents.list)
         list=res.data.contents.list;
         farmWorkid=list.map(function(value){return value.farmWorkSid})
+        executeDatetime = list.map(function (value) { return value.executeDatetime})
+        that.getPhoto();
+        for(var j=0;j<executeDatetime.length;j++){
+          executeDatetime[j] = new Date(executeDatetime[j] * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
+          executeDatetime[j] = executeDatetime[j].substring(0, executeDatetime[j].length - 8);
+        }
         console.log(farmWorkid)
         that.setData({
-          list:list
+          list:list,
+          workdate:executeDatetime
         })
-        for (var i = 0; i < farmWorkid.length; i++) {
-          console.log("123")
-          wx.request({
-            url: 'https://www.inteliagpf.cn/api/1.0/ll/system/photo/getPhotoByParams',
-            data: {
-              sessionId: sessionId,
-              companySid: companySid,
-              farmWorkSid: farmWorkid[i],
-              type: 'farmWork'
+        
 
-            },
-            method: 'POST',
-            success: function (res) {
-              
-              var add=[];
-              add = res.data.contents.map(function (value) { return value.photoAddress })
-              photo = photo.concat(add.shift());
-              //console.log(add.shift())
-
-              console.log(photo)
-              photo.push()
-              that.setData({
-                src:photo
-              })
-            }
-          })
-        } 
         
       },
       fail: function(res) {},
       complete: function(res) {},
     })
     
+    
+  },
+  getPhoto:function(){
+    var that=this;
+    
+    var sessionId = app.data.session;
+    var companySid = app.data.companySid;
+    console.log('farmWorkSid:',farmWorkid)
+    wx.request({
+      url: 'https://www.inteliagpf.cn/api/1.0/ll/system/photo/getPhotoByParams',
+      data: {
+        sessionId: sessionId,
+        companySid: companySid,
+        farmWorkSid: farmWorkid[i],
+        type: 'farmWork'
+
+      },
+      method: 'POST',
+      success: function (res) {
+        if (i < farmWorkid.length){
+          i++;
+          that.getPhoto();
+        }
+        var add = [];
+        console.log("farmWorkSid[i]:",farmWorkid[i])
+        add = res.data.contents.map(function (value) { return value.photoAddress })
+        console.log(add)
+        photo = photo.concat(add.shift());
+        console.log(add.shift())
+
+        console.log(photo)
+        photo.push()
+        that.setData({
+          src: photo
+        })
+      }
+    })
   },
   addAction:function(){
     wx.navigateTo({

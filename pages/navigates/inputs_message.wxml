@@ -9,9 +9,11 @@
         <view class="date">{{item.function}}</view>
         
     </navigator>
-    <navigator url="../navigates/edit_inputs?chemicalName={{item.chemicalName}}&chemicalVariety={{item.chemicalVariety}}&effectiveConstituent={{item.chemicalVariety}}&fun={{item.function}}&producerName={{item.producerName}}&producerNo={{item.producerNo}}&usageAmountDenominator={{item.usageAmountDenominator}}&safeInterval={{item.safeInterval}}&usageUnit={{item.usageUnit}}">
+    <view class="kuoda">
+      <navigator url="../navigates/edit_inputs?chemicalName={{item.chemicalName}}&chemicalVariety={{item.chemicalVariety}}&effectiveConstituent={{item.chemicalVariety}}&fun={{item.function}}&producerName={{item.producerName}}&producerNo={{item.producerNo}}&usageAmountDenominator={{item.usageAmountDenominator}}&safeInterval={{item.safeInterval}}&usageUnit={{item.usageUnit}}">
         <view class="detail"><image src="../../images/more.png"></image></view>
-    </navigator>
+      </navigator>
+    </view>
 </view>
 <navigator url="../navigates/add_inputs">
   <button bindtap="addInputs">增加投入品</button>

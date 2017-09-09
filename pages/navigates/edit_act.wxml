@@ -85,6 +85,26 @@
           </view>
         </picker>
 	  	</view>
+      
+      <view class="picture">
+        <view class="section_title">
+		    	<text>活动图片* </text>
+		    </view>
+        <view class="ctrl_pic">
+          <view class="farm_pic" wx:for="{{src}}" style="display:{{display2}}">
+            <image src="{{photoAddress[index]}}" mode="scaleToFill" bindtap="bigPic" bindlongtap="delete" data-id="{{index}}"></image>
+          </view>
+        </view>
+        <view class="more_pic">
+          <navigator url="view_pic" class="detail" wx:if="{{photoAddress.length>2}}">
+            <image src="../../images/more.png"></image>
+          </navigator> 
+          <view class="add"  bindtap="chooseImageTap" wx:if="{{photoAddress.length<3}}">
+            <image src="../../images/camera1.png"></image>
+          </view>
+        </view>
+        
+      </view>
 		<button form-type="submit" class="save">保存</button>
 	</view>
 </form>
