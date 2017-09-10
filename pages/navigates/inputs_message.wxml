@@ -16,5 +16,5 @@
     </view>
 </view>
 <navigator url="../navigates/add_inputs">
-  <button bindtap="addInputs">增加投入品</button>
+  <image src="../../images/add1.png" bindtap="addInputs" class="add_inputs"></image>
 </navigator>

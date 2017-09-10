@@ -33,6 +33,22 @@ page{
 .msg{
   width: 60%
 }
+.major_msg{
+  height: 1rem;
+  
+}
+.work{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  white-space:nowrap; 
+  width: 42%;
+  float: left
+}
+.worker{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  white-space:nowrap; 
+}
 .kuoda{
   height: 5rem;
   line-height: 5rem
@@ -41,4 +57,21 @@ page{
   width: 1.2rem;
   height: 1.2rem;
   margin-right:2rem 
+}
+.add_farmact{
+  width: 2rem;
+  height: 2rem;
+  position:fixed;
+right:2rem;
+top:4rem;
+
+}
+.view{
+  width: 100%;
+  z-index: 100;
+  background-color: black
+
+}
+.view image{
+  width: 100%
 }

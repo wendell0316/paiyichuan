@@ -1,0 +1,32 @@
+.in{
+  width: 60%;
+  height: 1.5rem;
+  border: 1px solid #888888;
+  border-radius: 0.3rem;
+}
+input{
+  
+  
+  background-color: white;
+ 
+  
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  color: #888;
+  padding-left: 0.5rem;
+}
+.section_title text{
+  font-size: 0.9rem;
+  line-height: 1.8rem;
+  margin-right: 1rem;
+}
+.section{
+  display: flex;
+  justify-content: flex-end;
+  height: 2.5rem;
+}
+.content{
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 1.5rem
+}

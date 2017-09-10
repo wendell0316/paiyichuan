@@ -1,13 +1,18 @@
 <!--view_pic.wxml-->
 <view class="farm_pic" wx:for="{{src}}" style="display:{{display2}}">
-    <image src="{{photoAddress[index]}}" mode="aspectFit" bindtap="bigPic" bindlongtap="delete" data-id="{{index}}"></image>
+    <image src="{{photoAddress[index]}}" mode="aspectFill" bindtap="bigPic" bindlongtap="delete" data-id="{{index}}"></image>
 </view>
-<swiper indicator-dots="{{indicatorDots}}"
-  indicator-dots="true"  style="display:{{display}};height:{{height}}px;line-height:{{height*1.3}}px" class="view">
-  <block wx:for="{{src}}">
-    <swiper-item>
-      <image src="{{item.photoAddress}}" class="slide-image" bindtap="littlePic" mode="widthFix" />
-    </swiper-item>
-  </block>
-</swiper>
-<button class="add_pic" bindtap="chooseImageTap" style="display:{{display2}}">增加农事活动图片</button>
+<view class="view" style="display:{{display}};height:{{height}}px;">
+  <view class="cent">
+    <swiper indicator-dots="{{indicatorDots}}"
+      indicator-dots="true" indicator-color="rgba(220,220,220,.3)" indicator-active-color="#fff" style="height:{{height}}px;">
+      <block wx:for="{{src}}">
+        <swiper-item>
+          <image src="{{item.photoAddress}}" class="slide-image" bindtap="littlePic" mode="aspectFit" style="height:{{height}}px;"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+
+<image src="../../images/add1.png" bindtap="chooseImageTap" class="add_pic" style="display:{{display2}}"></image>

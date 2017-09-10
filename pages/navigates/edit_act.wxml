@@ -1,6 +1,6 @@
 <!--edit_act.wxml-->
 <form bindsubmit="formSubmit">
-	<view class="content">
+	<view class="content" style="display:{{display2}}">
 		<view class="farm_work">
 			<view class="section_act">
 		      <view class="section_title">
@@ -54,6 +54,7 @@
 		      </picker>
 		      
 		    </view>
+      
 		</view>
 	    <view class="section">
 		    <view class="section_title">
@@ -92,11 +93,11 @@
 		    </view>
         <view class="ctrl_pic">
           <view class="farm_pic" wx:for="{{src}}" style="display:{{display2}}">
-            <image src="{{photoAddress[index]}}" mode="scaleToFill" bindtap="bigPic" bindlongtap="delete" data-id="{{index}}"></image>
+            <image src="{{photoAddress[index]}}" mode="aspectFill" bindtap="bigPic" bindlongtap="delete" data-id="{{index}}"></image>
           </view>
         </view>
         <view class="more_pic">
-          <navigator url="view_pic" class="detail" wx:if="{{photoAddress.length>2}}">
+          <navigator url="view_pic?farmWorkSid={{farmWorkSid}}" class="detail" wx:if="{{photoAddress.length>2}}">
             <image src="../../images/more.png"></image>
           </navigator> 
           <view class="add"  bindtap="chooseImageTap" wx:if="{{photoAddress.length<3}}">
@@ -108,4 +109,15 @@
 		<button form-type="submit" class="save">保存</button>
 	</view>
 </form>
-<view>{{farmWorkSid}}</view>
+<view class="view" style="display:{{display}};height:{{height}}px;">
+  <view class="cent">
+    <swiper indicator-dots="{{indicatorDots}}"
+      indicator-dots="true" indicator-color="rgba(220,220,220,.3)" indicator-active-color="#fff" style="height:{{height}}px;">
+      <block wx:for="{{src}}">
+        <swiper-item>
+          <image src="{{item.photoAddress}}" class="slide-image" bindtap="littlePic" mode="aspectFit" style="height:{{height}}px;"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>

@@ -1,4 +1,4 @@
-/* edit_act.wxss */
+ /* edit_act.wxss */
 page{
   height: 100%;
   background-color: #f0f0f2;
@@ -126,6 +126,9 @@ text-align:center;
 }
 .view image{
   width: 100%
+}
+.cent{
+  /* padding-top: 10rem */
 }
 .remind{
   font-size: 0.6rem;

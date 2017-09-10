@@ -43,3 +43,12 @@ page{
   height: 5rem;
   line-height: 5rem
 }
+.add_inputs{
+  width: 2rem;
+  height: 2rem;
+  position:fixed;
+right:2rem;
+top:4rem;
+
+}
+

@@ -536,7 +536,7 @@ Page({
     else {
       this.setData({
         display: 'none',
-        display: 'block'
+        display2: 'block'
       })
     }
   }

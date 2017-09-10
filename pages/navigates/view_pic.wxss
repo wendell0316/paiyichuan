@@ -11,13 +11,11 @@
 .farm_pic image{
   width: 100%;
   float: left;
-  margin-left: 1%;
+
   height: 5rem;
 
 }
-.add_pic{
-  clear: both
-}
+
 .view{
   width: 100%;
   z-index: 100;
@@ -30,4 +28,13 @@
 .remind{
   font-size: 0.6rem;
   margin-left: 1rem
+}
+.add_pic{
+  width: 2rem;
+  height: 2rem;
+  position:fixed;
+  right:1rem;
+top:24rem;
+
+ 
 }

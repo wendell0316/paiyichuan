@@ -2,6 +2,7 @@
  var farmWorkid = [];
  var photo = [];
  var i=0;
+ var allPic = false;
 Page({
   data: {
     icon:'../../images/more.png',
@@ -14,7 +15,10 @@ Page({
     tempFilePaths:'',
     list:'',
     src:'',
-    workdate:''
+    workdate:'',
+    allPic: '',
+    display: 'none',
+    display2: 'block',
   },
   onShow:function(){
    var sessionId=app.data.session;
@@ -170,7 +174,47 @@ Page({
         }
        
       })
-  }  
+  },
+  bigPic: function () {
+    allPic = !allPic;
+    this.setData({
+      allPic: allPic
+    })
+    if (allPic) {
+      this.setData({
+        display: 'block',
+        display2: 'none'
+
+      })
+    }
+    else {
+      this.setData({
+        display: 'none',
+        display: 'block'
+      })
+    }
+  }
+  ,
+  littlePic: function () {
+    allPic = !allPic;
+    this.setData({
+      allPic: allPic
+    })
+    if (!allPic) {
+      this.setData({
+        display: 'none',
+        display2: 'block'
+
+      })
+    }
+    else {
+      this.setData({
+        display: 'block',
+        display: 'none'
+      })
+    }
+  }
+  ,  
   
   
 })
