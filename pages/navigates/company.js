@@ -12,18 +12,20 @@ Page({
     companyIndustryCode:'',
     companyZipCode:'',
     companyWebsite:'',
-    message:''
+    message:'',
+    companyIdentificationNo:''
   },
   onLoad:function(){
     var that=this;
     var sessionId=app.data.session;
+    var companySid=app.data.companySid
     console.log("hello");
     wx.request({
       url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprise/information/getCompanyExpand',
       method: 'POST',
       data: {
         "sessionId":sessionId ,
-        "companySid": "34"
+        "companySid": companySid
       },
       header: { "Content-Type": "application/json" },
       success: function (res) {
@@ -41,9 +43,11 @@ Page({
           companyIndustryCode: res.data.contents.companyIndustryCode,
           companyZipCode: res.data.contents.companyZipCode,
           companyWebsite: res.data.contents.companyWebsite,
+          companyIdentificationNo: res.data.contents.companyIdentificationNo
 
           
         })
+        console.log(res.data.contents)
         
       }
 

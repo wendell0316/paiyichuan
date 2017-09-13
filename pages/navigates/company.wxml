@@ -6,7 +6,7 @@
 		  </view>
 		    
 		  <view class="in">
-		    <input type="text" placeholder="{{companyShortName}}" name="workerId"/>
+		    <input type="text" value="{{companyShortName}}" disabled="true"/>
 		  </view>
 	  </view>
     <view class="section">
@@ -15,7 +15,7 @@
 		  </view>
 		    
 		  <view class="in">
-		    <input type="text" placeholder="{{companyFullName}}" name="workerId"/>
+		    <input type="text" value="{{companyFullName}}" disabled="true"/>
 		  </view>
 	  </view>
     <view class="section">
@@ -24,7 +24,7 @@
 		  </view>
 		    
 		  <view class="in">
-		    <input type="text" placeholder="{{companyNo}}" name="workerId"/>
+		    <input type="text" value="{{companyNo}}" disabled="true"/>
 		  </view>
 	  </view>
     <view class="section">
@@ -33,7 +33,7 @@
 		  </view>
 		    
 		  <view class="in">
-		    <input type="text" placeholder="{{companyPhone}}" name="workerId"/>
+		    <input type="text" value="{{companyPhone}}" disabled="true"/>
 		  </view>
 	  </view>
         <view class="section">
@@ -42,26 +42,26 @@
 		  </view>
 		    
 		  <view class="in">
-		    <input type="text" placeholder="{{companyAddress}}" name="workerId"/>
+		    <input type="text" value="{{companyAddress}}" disabled="true"/>
 		  </view>
 	  </view>
         <view class="section">
 		  <view class="section_title">
-		    <text>公司工商注册号 </text>
+		    <text>工商注册号 </text>
 		  </view>
 		    
 		  <view class="in">
-		    <input type="text" placeholder="{{companyRegisterNo}}" name="workerId"/>
+		    <input type="text" value="{{companyRegisterNo}}" disabled="true"/>
 		  </view>
 	  </view>
         
         <view class="section">
 		  <view class="section_title">
-		    <text>厂商识别代码代码</text>
+		    <text>厂商识别代码</text>
 		  </view>
 		    
 		  <view class="in">
-		    <input type="text" placeholder="{{ompanyNo}}" name="workerId"/>
+		    <input type="text" value="{{companyIdentificationNo}}" disabled="true"/>
 		  </view>
 	  </view>
         <view class="section">
@@ -70,7 +70,7 @@
 		  </view>
 		    
 		  <view class="in">
-		    <input type="text" placeholder="{{companyIndustry}}" name="workerId"/>
+		    <input type="text" value="{{companyIndustry}}" disabled="true"/>
 		  </view>
 	  </view>
         <view class="section">
@@ -79,7 +79,7 @@
 		  </view>
 		    
 		  <view class="in">
-		    <input type="text" placeholder="{{companyIndustryCode}}" name="workerId"/>
+		    <input type="text" value="{{companyIndustryCode}}" disabled="true"/>
 		  </view>
 	  </view>
         <view class="section">
@@ -88,7 +88,7 @@
 		  </view>
 		    
 		  <view class="in">
-		    <input type="text" placeholder="{{companyZipCode}}" name="workerId"/>
+		    <input type="text" value="{{companyZipCode}}" disabled="true"/>
 		  </view>
 	  </view>
         <view class="section">
@@ -97,7 +97,7 @@
 		  </view>
 		    
 		  <view class="in">
-		    <input type="text" placeholder="{{companyWebsite}}" name="workerId"/>
+		    <input type="text" value="{{companyWebsite}}" disabled="true"/>
 		  </view>
 	  </view>      
     

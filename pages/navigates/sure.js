@@ -99,13 +99,12 @@ Page({
           }
         }
         var landNo=lands[index];
-        console.log(landNo);
-        console.log(index)
-        console.log(i)
-        console.log(land)
-        console.log(lands)
+        
         console.log(sessionId);
+        
+        console.log(landNo);
         console.log(companySid);
+        
         console.log(landSid);
         console.log(baseSid);
         console.log(varietyCode),
@@ -135,7 +134,7 @@ Page({
             executorName:userName,
             updateWriterName:userName,
             updateWriterNo:userNo,
-            note:'hehe',
+            note:'hello',
           },
           header: {},
           method: 'POST',
@@ -143,7 +142,9 @@ Page({
           success: function(res) {
             console.log(res.data.message)
           },
-          fail: function(res) {},
+          fail: function(res) {
+            console.log("失败！")
+          },
           complete: function(res) {},
         })
       },
