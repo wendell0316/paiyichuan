@@ -10,7 +10,7 @@
         
     </navigator>
     <view class="kuoda">
-      <navigator url="../navigates/edit_inputs?chemicalName={{item.chemicalName}}&chemicalVariety={{item.chemicalVariety}}&effectiveConstituent={{item.chemicalVariety}}&fun={{item.function}}&producerName={{item.producerName}}&producerNo={{item.producerNo}}&usageAmountDenominator={{item.usageAmountDenominator}}&safeInterval={{item.safeInterval}}&usageUnit={{item.usageUnit}}">
+      <navigator url="../navigates/edit_inputs?farmWorkSid={{farmWorkSid}}&chemicalName={{item.chemicalName}}&chemicalVariety={{item.chemicalVariety}}&effectiveConstituent={{item.chemicalVariety}}&fun={{item.function}}&producerName={{item.producerName}}&producerNo={{item.producerNo}}&usageAmountDenominator={{item.usageAmountDenominator}}&safeInterval={{item.safeInterval}}&usageUnit={{item.usageUnit}}">
         <view class="detail"><image src="../../images/more.png"></image></view>
       </navigator>
     </view>

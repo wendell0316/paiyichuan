@@ -7,9 +7,9 @@
 		        <text>农事活动*  </text>
 		      </view>
 		      
-		      <picker bindchange="bindPickerChange" value="{{index}}" range="{{base}}" name="基地">
+		      <picker bindchange="bindPickerChange" value="{{index0}}" range="{{base}}" name="基地">
 		        <view class="picker">
-		          {{base[index]}}
+		          {{base[index0]}}
               <image src="../../images/more_unfold.png" class="pulldown"></image>
 		        </view>
 		      </picker>

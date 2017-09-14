@@ -1,4 +1,8 @@
 // edit_inputs.js
+var app = getApp();
+var index=0;
+var index1=0;
+var index2=0;
 Page({
 
   /**
@@ -6,11 +10,12 @@ Page({
    */
   data: {
     inputs_array: ['农家肥', '2', '3', '4'],
-    index: 0,
+    index: '',
     use_quantity_unit: ['斤', '亩'],
     index1: 0,
     input:'',
-    input1:''
+    input1:'',
+    inputsName: ''
   },
   bindPickerChange: function(e) {
     console.log('投入品名称发送选择改变，携带值为', e.detail.value)
@@ -43,6 +48,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var inputsName = ['茶力士微量元素水溶肥', '石硫合剂', '波尔多液', '复合肥', '多菌灵', '吡虫啉', '保倍硼', '保倍钙', '联苯菊酯', '嘧菌酯', '硫酸钾', '抑菌唑', '生物有机肥']
+
+    var sessionId=app.data.session;
+    var farmWorkSid=options.farmWorkSid;
+    var chemicalName=options.chemicalName;
+    var chemicalVariety = options.chemicalVariety;
+    var effectiveConstituent = options.effectiveConstituent;
+    var fun=options.fun;
+    var producerNo = options.producerNo;
+    var producerName = options.producerName;
+    var safeInterval = options.safeInterval;
+    var usageAmountDenominator = options.usageAmountDenominator;
+    var usageUnit = options.usageUnit
+    for(i=0;i<inputsName.length;i++){
+      if(inputsName[i]==chemicalName){
+        index=i
+      }
+    }
 
   },
 

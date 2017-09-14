@@ -11,7 +11,7 @@ var farmWorkSid='';
 var time = '';
 var updateWriterName='';
 var updateWriterNo='';
-var index = 0;
+var index0 = 0;
 var index1 = 0;
 var index3 = 0;
 
@@ -37,7 +37,7 @@ Page({
     worker: '',
     workerId: '',
     workDate: '',
-    index: '',
+    index0: '',
     index1: '',
     index2: '',
     index3: '',
@@ -98,12 +98,14 @@ Page({
         bases = res.data.contents.list.map(function (value) { return value.baseName })
         for(var i=0;i<bases.length;i++){
           if(bases[i]==base){
-            index=i
+            index0=i
           }
         }
+        console.log('基地',bases);
+        console.log('i',index0)
         that.setData({
           base: bases,
-          index:index
+          index0:index0
         }),
           wx.request({
             url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprice/land/getLands',
@@ -282,9 +284,9 @@ Page({
   bindPickerChange: function (e) {
     console.log('投入品名称发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: e.detail.value
+      index0: e.detail.value
     })
-    index=e.detail.value
+    index0=e.detail.value
   },
   bindPickerChange1: function (e) {
     console.log('投入品名称发送选择改变，携带值为', e.detail.value)

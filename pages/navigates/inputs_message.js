@@ -16,6 +16,7 @@ Page({
     usageAmountDenominator:'',
     usageUnit:'',
     safeInterval:'',
+    farmWorkSid:''
 
 
   },
@@ -37,7 +38,10 @@ Page({
     var usageAmountDenominator=[]
     var usageUnit=[];
     var safeInterval=[];
-    var contents=[]
+    var contents=[];
+    this.setData({
+      farmWorkSid:farmWorkSid
+    })
     wx.request({
       url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprice/input/getInputs',
       data: {
