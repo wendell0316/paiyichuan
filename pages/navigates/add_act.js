@@ -15,6 +15,11 @@ var index0=0
 var index1 = 0
 var index2 = 0
 var index3 = 0
+var allPic = false;
+var photoInfSid = [];
+var photoAddress = [];
+var tempFilePaths=[];
+var imgFilePaths=[]
 Page({
   data:{
     base:'',
@@ -35,6 +40,13 @@ Page({
     workNo:'',
     varietyName:'',
     varietyCode:'',
+    allPic: '',
+    display: 'none',
+    display2: 'block',
+    photoAddress: '',
+    tempFilePaths:'',
+    imgFilePaths:'',
+    height:''
   },
   onLoad:function(){
     var that=this
@@ -55,7 +67,14 @@ Page({
         })
 
       }
-    })
+    }),
+      wx.getSystemInfo({
+        success: function (res) {
+          that.setData({
+            height: res.windowHeight
+          })
+        },
+      }),
     wx.request({
       url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprice/base/getBases',
       data: {
@@ -161,7 +180,7 @@ Page({
             })
           }
         })
-          ``
+      
       }
     })
     
@@ -230,6 +249,160 @@ Page({
       index3: e.detail.value,
       workName: works[index3],
       workNo: worksNo[index3]
+    })
+  },
+  chooseImageTap: function () {
+    let _this = this;
+    wx.showActionSheet({
+      itemList: ['从相册中选择', '拍照'],
+      itemColor: "#f7982a",
+      success: function (res) {
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            _this.chooseImage('album')
+          } else if (res.tapIndex == 1) {
+            _this.chooseImage('camera')
+          }
+        }
+      }
+    })
+  },
+  chooseImage: function (type) {
+    var _this = this;
+    wx.chooseImage({
+      count: 1, // 默认9  
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有  
+      sourceType: [type], // 可以指定来源是相册还是相机，默认二者都有  
+      success: function (res) {
+        if(tempFilePaths.length<2){
+          tempFilePaths.unshift(res.tempFilePaths)
+          
+          // imgFilePaths = JSON.stringify(imgFilePaths)
+          app.data.imgFilePaths=tempFilePaths
+          console.log(imgFilePaths)
+          _this.setData({
+            imgFilePaths:imgFilePaths
+          })
+        }
+        else{
+           tempFilePaths=[tempFilePaths[0],tempFilePaths[1]]
+          wx.showModal({
+            title: '提示',
+            content: '创建农事活动时，仅可上传两张图片！',
+            success: function(res) {
+
+            },
+            fail: function(res) {},
+            complete: function(res) {},
+          })
+        }
+        var sessionId = app.data.session;
+        var companySid = app.data.companySid;
+        
+        console.log("temp:",tempFilePaths)
+        // console.log(imgFilePaths)
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
+        _this.setData({
+          tempFilePaths: tempFilePaths
+        })
+          
+
+      }
+
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+  bigPic: function () {
+    allPic = !allPic;
+    this.setData({
+      allPic: allPic
+    })
+    if (allPic) {
+      this.setData({
+        display: 'block',
+        display2: 'none'
+
+      })
+    }
+    else {
+      this.setData({
+        display: 'none',
+        display2: 'block'
+      })
+    }
+  }
+  ,
+  littlePic: function () {
+    allPic = !allPic;
+    this.setData({
+      allPic: allPic
+    })
+    if (!allPic) {
+      this.setData({
+        display: 'none',
+        display2: 'block'
+
+      })
+    }
+    else {
+      this.setData({
+        display: 'block',
+        display: 'none'
+      })
+    }
+  }
+  ,
+  delete: function (e) {
+    var id = e.currentTarget.dataset.id;
+    var sessionId = app.data.session;
+    var that = this
+    console.log(id)
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除此图片吗',
+      
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          tempFilePaths.splice(id, 1);
+          console.log(photoAddress)
+          wx.request({
+            url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprice/base/deleteBasePhotosBySid',
+            data: {
+              sessionId: sessionId,
+              photoInfSid: photoInfSid[id]
+            },
+            header: {},
+            method: 'POST',
+            dataType: '',
+            success: function (res) {
+              console.log(res.data.message)
+
+
+              photoAddress.splice(id, 1);
+              console.log(photoAddress)
+              that.setData({
+                photoAddress: photoAddress
+              })
+              wx.showToast({
+                title: '删除成功',
+                icon: 'success',
+                duration: 2000
+              })
+            },
+
+          })
+        }
+        else if (res.cancel) {
+          console.log('点击取消')
+        }
+
+      }
     })
   },
   

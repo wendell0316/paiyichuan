@@ -1,5 +1,5 @@
 <!--sure.wxml-->
-<view class="farm_work">
+<view class="farm_work" style="display:{{display2}}">
   <view class="special">
       <view class="section_title">农事活动：</view>
       <view class="special_item">
@@ -15,7 +15,7 @@
   </view>
   <view class="section">
     <view class="section_tile">执行人：</view>
-    <view class="item">{{userName}}123</view>
+    <view class="item">{{userName}}</view>
   </view>
   <view class="section">
 		    <view class="section_title">
@@ -28,5 +28,37 @@
           </view>
         </picker>
 	</view>
+    <view class="section">
+        <view class="section_title">
+		    	<text>活动图片: </text>
+		    </view>
+        <view class="ctrl_pic">
+          <view class="farm_pic" wx:for="{{imgFilePaths}}" style="display:{{display2}}">
+            <image src="{{imgFilePaths[index]}}" mode="aspectFill" bindtap="bigPic" bindlongtap="delete" data-id="{{index}}"></image>
+          </view>
+        </view>
+        <view class="more_pic">
+          <navigator url="view_pic?farmWorkSid={{farmWorkSid}}" class="detail" wx:if="{{photoAddress.length>2}}">
+            <image src="../../images/more.png"></image>
+          </navigator> 
+          <view class="add"  bindtap="chooseImageTap" wx:if="{{photoAddress.length<3}}">
+            <image src="../../images/camera1.png"></image>
+          </view>
+        </view>
+        
+     
+    </view>
   <button class="save" bindtap="addFarmWork">保存</button>
+</view>
+<view class="view" style="display:{{display}};height:{{height}}px;">
+  <view class="cent">
+    <swiper indicator-dots="{{indicatorDots}}"
+      indicator-dots="true" indicator-color="rgba(220,220,220,.3)" indicator-active-color="#fff" style="height:{{height}}px;">
+      <block wx:for="{{imgFilePaths}}">
+        <swiper-item>
+          <image src="{{imgFilePaths[index]}}" class="slide-image" bindtap="littlePic" mode="aspectFit" style="height:{{height}}px;"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
 </view>

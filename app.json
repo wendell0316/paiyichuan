@@ -33,16 +33,15 @@
       {
         "pagePath": "pages/index/index",
         "text": "农事活动",
-        "list": [
-          {
-            "pagePath": "pages/navigates/add_inputs",
-            "text": "农事活动"
-          }
-        ]
+        "iconPath":"images/farmwork.png",
+        "selectedIconPath":"images/farmwork_act.png"
+
       },
       {
         "pagePath": "pages/logs/logs",
-        "text": "我"
+        "text": "个人中心",
+        "iconPath": "images/person.png",
+        "selectedIconPath": "images/person_act.png"
       }
     ]
   },

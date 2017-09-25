@@ -1,5 +1,5 @@
 <!--add.wxml-->
-<form bindsubmit="formSubmit">
+<form bindsubmit="formSubmit" style="display:{{display2}}">
   <view class="content">
     <view class="section">
       <view class="section_title">
@@ -51,8 +51,40 @@
         </view>
       </picker>
     </view>
+    <view class="section">
+        <view class="section_title">
+		    	<text>活动图片 </text>
+		    </view>
+        <view class="ctrl_pic">
+          <view class="farm_pic" wx:for="{{tempFilePaths}}" style="display:{{display2}}">
+            <image src="{{tempFilePaths[index]}}" mode="aspectFill" bindtap="bigPic" bindlongtap="delete" data-id="{{index}}"></image>
+          </view>
+        </view>
+        <view class="more_pic">
+          <navigator url="view_pic?farmWorkSid={{farmWorkSid}}" class="detail" wx:if="{{photoAddress.length>2}}">
+            <image src="../../images/more.png"></image>
+          </navigator> 
+          <view class="add"  bindtap="chooseImageTap" wx:if="{{photoAddress.length<3}}">
+            <image src="../../images/camera1.png"></image>
+          </view>
+        </view>
+        
+     
+    </view>
   </view>
   <navigator hover-class="none" url="sure?baseName={{baseName}}&baseSid={{baseSid}}&landName={{landName}}&landSid={{landSid}}&varietyName={{varietyName}}&varietyCode={{varietyCode}}&workName={{workName}}&workNo={{workNo}}&userName={{userName}}&userNo={{userNo}}">
     <button form-type="submit" class="next">下一步</button>
   </navigator>
 </form>
+<view class="view" style="display:{{display}};height:{{height}}px;">
+  <view class="cent">
+    <swiper indicator-dots="{{indicatorDots}}"
+      indicator-dots="true" indicator-color="rgba(220,220,220,.3)" indicator-active-color="#fff" style="height:{{height}}px;">
+      <block wx:for="{{tempFilePaths}}">
+        <swiper-item>
+          <image src="{{tempFilePaths[index]}}" class="slide-image" bindtap="littlePic" mode="aspectFit" style="height:{{height}}px;"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>

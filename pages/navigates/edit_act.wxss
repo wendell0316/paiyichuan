@@ -66,14 +66,15 @@ input{
   color: #888;
   padding-left: 0.5rem;
 }
+
+.picture{
+  display: flex;
+  justify-content: flex-end;
+}
 .ctrl_pic{
   width: 40%;
   height: 3.5rem;
   overflow: hidden;
-}
-.picture{
-  display: flex;
-  justify-content: flex-end;
 }
 .farm_pic{
   
