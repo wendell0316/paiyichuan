@@ -275,14 +275,13 @@ Page({
       sourceType: [type], // 可以指定来源是相册还是相机，默认二者都有  
       success: function (res) {
         if(tempFilePaths.length<2){
-          tempFilePaths.unshift(res.tempFilePaths)
-          
-          // imgFilePaths = JSON.stringify(imgFilePaths)
+          // tempFilePaths.unshift(res.tempFilePaths)
+          console.log(res.tempFilePaths)
+          tempFilePaths= tempFilePaths.concat(res.tempFilePaths)
+          console.log('temp:',tempFilePaths)
           app.data.imgFilePaths=tempFilePaths
-          console.log(imgFilePaths)
-          _this.setData({
-            imgFilePaths:imgFilePaths
-          })
+          
+          
         }
         else{
            tempFilePaths=[tempFilePaths[0],tempFilePaths[1]]
@@ -365,38 +364,22 @@ Page({
     wx.showModal({
       title: '提示',
       content: '确定要删除此图片吗',
-      
       success: function (res) {
         if (res.confirm) {
           console.log('用户点击确定')
-          tempFilePaths.splice(id, 1);
-          console.log(photoAddress)
-          wx.request({
-            url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprice/base/deleteBasePhotosBySid',
-            data: {
-              sessionId: sessionId,
-              photoInfSid: photoInfSid[id]
-            },
-            header: {},
-            method: 'POST',
-            dataType: '',
-            success: function (res) {
-              console.log(res.data.message)
-
-
-              photoAddress.splice(id, 1);
-              console.log(photoAddress)
-              that.setData({
-                photoAddress: photoAddress
-              })
-              wx.showToast({
-                title: '删除成功',
-                icon: 'success',
-                duration: 2000
-              })
-            },
-
+          tempFilePaths.splice(id, 1)
+          console.log(imgFilePaths)
+          that.setData({
+            tempFilePaths:tempFilePaths
           })
+          wx.showToast({
+            title: '删除成功',
+            icon: 'success',
+            duration: 2000
+          })
+
+
+
         }
         else if (res.cancel) {
           console.log('点击取消')

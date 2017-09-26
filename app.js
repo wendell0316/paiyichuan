@@ -15,7 +15,8 @@ App({
     varietyCode:'',
     base:'',
     land:'',
-    imgFilePaths:''
+    imgFilePaths:'',
+    photourl:''
   },
   onLaunch:function(){
     this.getUserDataToken();

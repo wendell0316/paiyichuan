@@ -17,8 +17,9 @@ var index = 0;
 var allPic = false;
 var photoInfSid = [];
 var photoAddress = [];
-
+var farmWorkid=[]
 var imgFilePaths=[]
+var maxfarmWorkid=''
 
 Page({
 
@@ -163,15 +164,41 @@ Page({
           dataType: '',
           success: function(res) {
             console.log(res.data.message)
-            
-            wx.showToast({
-              title: '添加成功',
-              icon: 'success',
-              duration: 2000
+            wx.request({
+              url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprice/farmwork/getFarmworks',
+              data: {
+                sessionId: sessionId,
+                companySid: companySid,
+                landSid: '-1',
+                number: '100000',
+                page: '1',
+                baseSid: '-1'
+              },
+              header: {},
+              method: 'POST',
+              dataType: '',
+              success: function (res) {
+                console.log(res.data.contents.list)
+                farmWorkid = res.data.contents.list.map(function (value) { return value.farmWorkSid })
+                maxfarmWorkid=farmWorkid[0]
+                for(let i=1 ;i<farmWorkid.length;i++){
+                  if(farmWorkid[i]>maxfarmWorkid){
+                    maxfarmWorkid=farmWorkid[i]
+                  }
+                }
+                console.log(farmWorkid)
+                console.log('maxfarmWorkid:',maxfarmWorkid)
+                for(let index in imgFilePaths){
+                  that.upload_file(imgFilePaths[index])
+                }
+
+
+
+              },
+              fail: function (res) { },
+              complete: function (res) { },
             })
-            wx.reLaunch({
-              url: '../index/index',
-            })
+
           },
           fail: function(res) {
             console.log("失败！")
@@ -188,6 +215,46 @@ Page({
       complete: function(res) {},
     })
 
+  },
+  upload_file:function(filePath){
+    var that = this;
+    var sessionId = app.data.session;
+    var companySid = app.data.companySid;
+    wx.uploadFile({
+
+      url: 'https://www.inteliagpf.cn/api/1.0/ll/system/photo/uploadPhotoByParams',
+      method: 'POST',
+      formData: {
+        'sessionId': sessionId,
+        'companySid': companySid,
+        'farmWorkSid': maxfarmWorkid,
+        'updateWriterNo': workNo,
+        'updateWriterName': workName,
+        'type': 'farmWork',
+        'note': '测试',
+
+
+      },
+      header: {
+
+      },
+      filePath: filePath,
+      name: 'file',
+
+      success: function (res) {
+        var data = res.data
+        console.log(res.data)
+        wx.showToast({
+          title: '添加成功',
+          icon: 'success',
+          duration: 2000
+        })
+        wx.reLaunch({
+          url: '../index/index',
+        })
+
+      }
+    })
   },
   chooseImageTap: function () {
     let _this = this;
@@ -338,32 +405,18 @@ Page({
       success: function (res) {
         if (res.confirm) {
           console.log('用户点击确定')
-          wx.request({
-            url: 'https://www.inteliagpf.cn/api/1.0/ll/enterprice/base/deleteBasePhotosBySid',
-            data: {
-              sessionId: sessionId,
-              photoInfSid: photoInfSid[id]
-            },
-            header: {},
-            method: 'POST',
-            dataType: '',
-            success: function (res) {
-              console.log(res.data.message)
-
-
-              photoAddress.splice(id, 1);
-              console.log(photoAddress)
-              that.setData({
-                photoAddress: photoAddress
-              })
+              imgFilePaths.splice(id,1)
               wx.showToast({
                 title: '删除成功',
                 icon: 'success',
                 duration: 2000
               })
-            },
+              that.setData({
+                tempFilePaths: tempFilePaths
+              })
+            
 
-          })
+         
         }
         else if (res.cancel) {
           console.log('点击取消')

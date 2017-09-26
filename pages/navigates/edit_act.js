@@ -351,7 +351,7 @@ Page({
       workerId=e.detail.value.workerId
     }
    
-    console.log(baseSid[index])
+    // console.log(baseSid[index])
     console.log(companySid)
     console.log(sessionId)
     
@@ -377,7 +377,7 @@ Page({
       data: {
         sessionId: sessionId, 
         companySid:companySid,
-        baseSid: baseSid[index],
+        baseSid: baseSid[index0],
         landSid: landSid[index1],
         landNo: landNo[index1],
         farmWorkVarietyName: varietys[index2],
@@ -405,8 +405,13 @@ Page({
           icon:'success',
           duration:2000
         })
-        wx.reLaunch({
+        wx.switchTab({
           url: '../index/index',
+          success: function (e) {
+            var page = getCurrentPages().pop();
+            if (page == undefined || page == null) return;
+            page.onLoad();
+          }
         })
       },
       fail: function(res) {
@@ -470,7 +475,6 @@ Page({
             },
             filePath: tempFilePaths[0],
             name: 'file',
-
             success: function (res) {
               var data = res.data
               console.log(res.data)
